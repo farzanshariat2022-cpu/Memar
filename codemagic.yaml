@@ -85,7 +85,29 @@ workflows:
         script: flutter pub get
 
       - name: بیلد APK ریلیز
-        script: flutter build apk --release
+        script: |
+          set -e
+
+          echo "Patching usage_stats..."
+
+          USAGE_GRADLE=$(find ~/.pub-cache -path "*usage_stats-*/android/build.gradle" | head -1)
+
+          if [ -z "$USAGE_GRADLE" ]; then
+            echo "usage_stats gradle not found"
+            exit 1
+          fi
+
+          echo "Found: $USAGE_GRADLE"
+
+          sed -i '' 's/jcenter()/mavenCentral()/g' "$USAGE_GRADLE"
+
+          sed -i '' 's/compileSdkVersion 30/compileSdkVersion 36/g' "$USAGE_GRADLE"
+
+          sed -i '' 's/compileSdk 30/compileSdk 36/g' "$USAGE_GRADLE"
+
+          echo "Starting build..."
+
+          flutter build apk --release
 
     artifacts:
       - build/app/outputs/flutter-apk/*.apk
