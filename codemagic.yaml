@@ -6,12 +6,10 @@ workflows:
     environment:
       flutter: stable
     scripts:
-      - name: تولید ساختار پروژه اندروید (چون این ریپو بدون android/ ارسال شده)
+      - name: تولید ساختار پروژه اندروید
         script: |
           set -e
-          if [ ! -d "android" ]; then
-            flutter create --platforms=android --org com.farzan .
-          fi
+          flutter create --platforms=android --org com.farzan .
 
       - name: جایگزینی فایل‌های gradle آماده‌شده با پشتیبانی Firebase
         script: |
@@ -85,6 +83,8 @@ workflows:
           sed -i '' 's/compileSdk 30/compileSdk 36/g' "$USAGE_GRADLE"
 
           echo "Starting build..."
+
+          flutter pub cache repair
 
           flutter build apk --release --verbose
 
