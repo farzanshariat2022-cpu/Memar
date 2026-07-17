@@ -11,7 +11,11 @@ Future<void> main() async {
   // توجه: در اپ‌های فقط-اندروید با google-services.json در android/app/،
   // نیازی به پاس دادن FirebaseOptions نیست؛ پلاگین Gradle خودش تنظیمات را
   // در زمان بیلد به‌کار می‌گیرد. راهنمای کامل در README.md پروژه.
+  try {
   await Firebase.initializeApp();
+} catch (e) {
+  debugPrint("Firebase Error: $e");
+  }
 
   runApp(const ArchitectApp());
 }
