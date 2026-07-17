@@ -56,8 +56,11 @@ workflows:
           fi
 
           echo "✅ google-services.json با applicationId=$GRADLE_APP_ID با موفقیت جایگزین شد."
+
+      - name: پاکسازی پروژه
+        script: |
+          flutter clean
           
-      
       - name: نصب پکیج‌ها
         script: flutter pub get
 
