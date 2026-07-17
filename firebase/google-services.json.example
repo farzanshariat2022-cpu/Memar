@@ -1,0 +1,30 @@
+{
+  "_COMMENT": "این یک فایل نمونه/الگو است، نه فایل واقعی! باید آن را با فایل واقعی که از Firebase Console دانلود می‌کنی جایگزین کنی. توضیحات کامل در README.md بخش «فعال‌سازی Firebase» است. مقدار _COMMENT نباید در فایل واقعی وجود داشته باشد - فایل واقعی را بدون دستکاری، عیناً از Firebase Console دانلود و جایگزین کن.",
+  "project_info": {
+    "project_number": "000000000000",
+    "project_id": "architect-app-example",
+    "storage_bucket": "architect-app-example.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
+        "android_client_info": {
+          "package_name": "com.farzan.architect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "EXAMPLE_API_KEY_REPLACE_ME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

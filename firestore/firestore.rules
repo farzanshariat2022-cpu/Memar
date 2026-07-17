@@ -1,0 +1,19 @@
+rules_version = '2';
+
+// قوانین امنیتی Firestore برای «معمار».
+// هر کاربر فقط به زیرمجموعه‌های سند خودش (users/{uid}/...) دسترسی خواندن/نوشتن دارد.
+// این فایل را در Firebase Console -> Firestore Database -> Rules کپی کن،
+// یا با Firebase CLI دیپلوی کن: firebase deploy --only firestore:rules
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      match /{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+name: architect_app
+description: "معمار - سیستم جامع مدیریت زندگی، ردیاب عادات و کوچ شخصی هوش مصنوعی"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # --- Firebase ---
+  firebase_core: ^3.6.0
+  cloud_firestore: ^5.4.4
+  firebase_auth: ^5.3.1
+  firebase_functions: ^5.1.3
+
+  # --- UI / Charts ---
+  fl_chart: ^0.69.0
+  flutter_heatmap_calendar: ^1.0.5
+  google_fonts: ^6.2.1
+
+  # --- State management ---
+  provider: ^6.1.2
+
+  # --- Notifications ---
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.9.4
+
+  # --- Screen time tracking (Android Usage Stats) ---
+  usage_stats: ^1.3.0
+
+  # --- Networking / Utils ---
+  http: ^1.2.2
+  intl: ^0.19.0
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true

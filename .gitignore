@@ -1,0 +1,13 @@
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+*.iml
+*.class
+
+# فایل firebase/google-services.json عمداً IGNORE نشده و باید در ریپو کامیت شود؛
+# این فایل محرمانه نیست (طبق مستندات رسمی فایربیس)، امنیت واقعی از طریق
+# Firestore Security Rules تامین می‌شود، نه پنهان‌کردن این فایل.

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "746668907971",
+    "project_id": "architect-app-9b259",
+    "storage_bucket": "architect-app-9b259.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746668907971:android:e9c2aeb94281ab94a07176",
+        "android_client_info": {
+          "package_name": "com.farzan.architect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp1Tj8yUFoH-9i2le8w2XdK-9tk5_nnC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
