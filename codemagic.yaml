@@ -56,6 +56,18 @@ workflows:
           fi
 
           echo "✅ google-services.json با applicationId=$GRADLE_APP_ID با موفقیت جایگزین شد."
+          
+      - name: Fix old Android plugins
+        script: |
+          set -e
+
+          flutter pub get
+
+          echo "Fixing usage_stats Gradle..."
+
+          find ~/.pub-cache/hosted/pub.dev -path "*usage_stats*/android/build.gradle" -exec sed -i '' 's/jcenter()/mavenCentral()/g' {} \;
+
+          echo "Done."
 
       - name: نصب پکیج‌ها
         script: flutter pub get
