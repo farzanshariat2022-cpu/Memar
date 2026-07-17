@@ -86,7 +86,7 @@ workflows:
 
           echo "Starting build..."
 
-          flutter build apk --release
+          flutter build apk --release --verbose
 
     artifacts:
       - build/app/outputs/flutter-apk/*.apk
