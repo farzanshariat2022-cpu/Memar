@@ -57,30 +57,7 @@ workflows:
 
           echo "✅ google-services.json با applicationId=$GRADLE_APP_ID با موفقیت جایگزین شد."
           
-      - name: Fix Android plugin compatibility
-        script: |
-          set -e
-
-          flutter pub get
-
-          echo "Patching usage_stats..."
-
-          USAGE_GRADLE=$(find ~/.pub-cache/hosted/pub.dev -path "*usage_stats*/android/build.gradle" | head -1)
-
-          if [ -n "$USAGE_GRADLE" ]; then
-            echo "Found: $USAGE_GRADLE"
-
-            sed -i '' 's/jcenter()/mavenCentral()/g' "$USAGE_GRADLE"
-
-            sed -i '' 's/compileSdkVersion 30/compileSdkVersion 36/g' "$USAGE_GRADLE"
-
-            sed -i '' 's/compileSdk 30/compileSdk 36/g' "$USAGE_GRADLE"
-
-            echo "✅ usage_stats patched"
-          else
-            echo "❌ usage_stats gradle not found"
-            exit 1
-          fi
+      
       - name: نصب پکیج‌ها
         script: flutter pub get
 
@@ -90,8 +67,7 @@ workflows:
 
           echo "Patching usage_stats..."
 
-          USAGE_GRADLE=$(find ~/.pub-cache -path "*usage_stats-*/android/build.gradle" | head -1)
-
+          USAGE_GRADLE=$(find ~/.pub-cache/hosted/pub.dev -path "*/usage_stats-*/android/build.gradle" | grep -v "/example/" | head -1)
           if [ -z "$USAGE_GRADLE" ]; then
             echo "usage_stats gradle not found"
             exit 1
